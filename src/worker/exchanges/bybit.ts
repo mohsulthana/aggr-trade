@@ -48,7 +48,7 @@ export default class extends Exchange {
    * @param {WebSocket} api
    * @param {string} pair
    */
-  async subscribe(api, pair) {
+  async subscribe(api: WebSocket, pair: string) {
     if (!(await super.subscribe(api, pair))) {
       return
     }
@@ -78,7 +78,7 @@ export default class extends Exchange {
    * @param {WebSocket} api
    * @param {string} pair
    */
-  async unsubscribe(api, pair) {
+  async unsubscribe(api: WebSocket, pair: string) {
     if (!(await super.unsubscribe(api, pair))) {
       return
     }

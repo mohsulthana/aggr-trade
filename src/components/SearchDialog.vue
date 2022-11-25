@@ -573,6 +573,7 @@ export default {
       return !Object.values(this.searchQuotes).find(a => !!a)
     },
     exchanges() {
+      console.log(this.$store.getters['exchanges/getExchanges'])
       return this.$store.getters['exchanges/getExchanges']
     },
     searchExchanges() {

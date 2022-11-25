@@ -12,18 +12,15 @@ export type ExchangesState = { [exchangeId: string]: ExchangeSettings } & {
   _exchanges: string[]
 }
 
-const supportedExchanges = process.env.VUE_APP_EXCHANGES.split(',').map(id =>
-  id.toUpperCase()
+const supportedExchanges = process.env.VUE_APP_EXCHANGES.split(',').map(
+  (id: string) => id.toUpperCase()
 )
 
 const state = supportedExchanges.reduce(
   (exchangesState: ExchangesState, id: string) => {
     exchangesState[id] = {
-      disabled: /AGGR|HITBTC|PHEMEX|BINANCE_US|SERUM|HUOBI|POLONIEX|FTX/.test(
-        id
-      )
+      disabled: /AGGR|BINANCE_US|SERUM|POLONIEX|FTX/.test(id)
     }
-
     return exchangesState
   },
   {
